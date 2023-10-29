@@ -1,6 +1,7 @@
 package com.example.myappfragments;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +15,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // instaciamos el botón de cambio de actividad
         Button btnactivity2 = findViewById(R.id.btnactivity2);
         btnactivity2.setOnClickListener(iractivity2);
 
 
+
+
+
+
+     /*   ContadorFragment contadorFragment = new ContadorFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainerAgregar, contadorFragment)
+                .commit();
+
+        // instanciamos el fragment del contador
+        agregarFragment agregarFragment = new agregarFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainerContador, agregarFragment)
+                .commit();
+*/
 
 
 
@@ -40,6 +58,34 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+    private View.OnClickListener irafragmentcontador = new View.OnClickListener() {
+
+        @Override
+
+        public void onClick(View view){
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainerAgregar, ContadorFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("cambio") // Name can be null
+                    .commit();
+
+
+
+
+        }
+
+
+
+
+    };
+
+
+
+
+
+
     @Override
 
     protected void onStart() {
@@ -51,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 
