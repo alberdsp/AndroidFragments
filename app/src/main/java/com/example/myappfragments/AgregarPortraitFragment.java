@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
@@ -98,7 +98,7 @@ public class AgregarPortraitFragment extends Fragment {
         // al pulsar vamos al activity2
         btnagregar.setOnClickListener(iractivity2);
 
-        Text textcontador = getActivity().findViewById(R.id.textContadorPortrait);
+        Text textcontador = getActivity().findViewById(R.id.textContadorLand);
 
 
 
@@ -124,7 +124,7 @@ public class AgregarPortraitFragment extends Fragment {
                 //  Toast.makeText(getActivity(),contadorPulsos.getContador(),Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity(),
-                        ContadorPortrait.class);
+                        ActivityContadorPortrait.class);
 
 
                 startActivity(intent);
@@ -135,7 +135,9 @@ public class AgregarPortraitFragment extends Fragment {
 
                 contadorPulsos.sumarContador();
 
-
+                //refrescarContador();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
 
 
 
@@ -161,39 +163,7 @@ public class AgregarPortraitFragment extends Fragment {
 
     // instanciamos la clase ContadorPulsos y obtenemos la instancia iniciada
     ContadorPulsos contadorPulsos = ContadorPulsos.getInstancia();
-    private View.OnClickListener irafragmentcontador = new View.OnClickListener() {
 
-
-
-        @Override
-//TODO    no esta claro el uso
-        public void onClick(View view){
-
-
-
-
-
-                // Creamos el nuevo fragment y la transacción
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setReorderingAllowed(true);
-
-                // Reemplazamos el fragment agregar por una instancia del contador
-                transaction.replace(R.id.fragmentContainerAgregar, ContadorFragment.newInstance("", ""));
-
-                // Commit la transacción
-                transaction.commit();
-
-
-
-
-
-
-
-        }
-
-
-    };
 
 
 

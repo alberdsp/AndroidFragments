@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class ContadorPortrait extends AppCompatActivity {
+public class ActivityContadorPortrait extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class ContadorPortrait extends AppCompatActivity {
 
         public void onClick(View view){
 
-            Intent intent = new Intent(ContadorPortrait.this,
+            Intent intent = new Intent(ActivityContadorPortrait.this,
                     MainActivity.class);
 
             startActivity(intent);

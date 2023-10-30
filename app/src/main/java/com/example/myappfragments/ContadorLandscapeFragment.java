@@ -1,8 +1,5 @@
 package com.example.myappfragments;
 
-import static android.content.Intent.getIntent;
-
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,10 +11,10 @@ import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ContadorPortraitFragment#newInstance} factory method to
+ * Use the {@link ContadorLandscapeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ContadorPortraitFragment extends Fragment {
+public class ContadorLandscapeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +25,7 @@ public class ContadorPortraitFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ContadorPortraitFragment() {
+    public ContadorLandscapeFragment() {
         // Required empty public constructor
     }
 
@@ -41,8 +38,8 @@ public class ContadorPortraitFragment extends Fragment {
      * @return A new instance of fragment ContadorPortaitFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ContadorPortraitFragment newInstance(String param1, String param2) {
-        ContadorPortraitFragment fragment = new ContadorPortraitFragment();
+    public static ContadorLandscapeFragment newInstance(String param1, String param2) {
+        ContadorLandscapeFragment fragment = new ContadorLandscapeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -82,20 +79,30 @@ public class ContadorPortraitFragment extends Fragment {
 
 
 
-        return inflater.inflate(R.layout.fragment_contador_portrait, container, false);
+        return inflater.inflate(R.layout.fragment_contador_land, container, false);
     }
     // instanciamos la clase ContadorPulsos y obtenemos la instancia iniciada
     ContadorPulsos contadorPulsos = ContadorPulsos.getInstancia();
     @Override
 
+
+    // cuando se prepara el fragment para trabajar con el y se muestra, establecemos
+    // el valor de texto.
+
     public void onResume() {
         super.onResume();
-        TextView textView = requireView().findViewById(R.id.textContadorPortrait);
+        TextView textView = requireView().findViewById(R.id.textContadorLand);
         textView.setText(contadorPulsos.getContador());
 
 
     }
 
+    public void refrescarContador(){
+
+        TextView textView = requireView().findViewById(R.id.textContadorLand);
+        textView.setText(contadorPulsos.getContador());
+
+    }
 
 
 }
