@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -39,6 +40,15 @@ public class MainActivity2 extends AppCompatActivity {
     };
 
 
+    protected void onStart() {
+
+        super.onStart();
+
+        Toast.makeText(this,"Iniciado activity 2",Toast.LENGTH_SHORT).show();
+
+
+
+    }
 
 
 

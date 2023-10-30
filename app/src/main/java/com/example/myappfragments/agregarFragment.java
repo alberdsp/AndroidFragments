@@ -88,9 +88,9 @@ public class agregarFragment extends Fragment {
         Button btnagregar = vista.findViewById(R.id.btnagregar);
 
         // al clicar irá al listener irafragmentcontador
-        btnagregar.setOnClickListener(irafragmentcontador);
-
-
+      //  btnagregar.setOnClickListener(irafragmentcontador);
+        // al pulsar vamos al activity2
+        btnagregar.setOnClickListener(iractivity2);
 
 
 
@@ -98,9 +98,33 @@ public class agregarFragment extends Fragment {
         return vista;
     }
 
+// método para ir al activity 2
 
 
-    // creamos el listener para pasar de fragment
+    private View.OnClickListener iractivity2 = new View.OnClickListener() {
+
+        @Override
+
+        public void onClick(View view){
+
+            Intent intent = new Intent(getActivity(),
+                    MainActivity2.class);
+
+            startActivity(intent);
+        }
+
+
+
+
+    };
+
+
+
+
+
+
+
+
 
     private View.OnClickListener irafragmentcontador = new View.OnClickListener() {
 

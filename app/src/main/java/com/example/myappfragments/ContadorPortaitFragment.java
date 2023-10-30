@@ -3,8 +3,6 @@ package com.example.myappfragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ContadorFragment#newInstance} factory method to
+ * Use the {@link ContadorPortaitFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ContadorFragment extends Fragment {
+public class ContadorPortaitFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +24,7 @@ public class ContadorFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ContadorFragment() {
+    public ContadorPortaitFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +34,11 @@ public class ContadorFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ContadorFragment.
+     * @return A new instance of fragment ContadorPortaitFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ContadorFragment newInstance(String param1, String param2) {
-        ContadorFragment fragment = new ContadorFragment();
+    public static ContadorPortaitFragment newInstance(String param1, String param2) {
+        ContadorPortaitFragment fragment = new ContadorPortaitFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -55,41 +53,12 @@ public class ContadorFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vista = inflater.inflate(R.layout.fragment_contador,container,false);
-
-              //TODO
-
-
-         // falta implementar que vuelva al fragment principal
-
-         // Creamos el nuevo fragment y la transacción
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.setReorderingAllowed(true);
-
-        // Reemplazamos el fragment agregar por una instancia del contador
-        transaction.replace(R.id.fragmentContainerContador2, agregarFragment.newInstance("",""));
-
-        // Commit la transacción
-        transaction.commit();
-
-
-        return vista;
+        return inflater.inflate(R.layout.fragment_contador_portait, container, false);
     }
-
-
-
-
-
-
 }

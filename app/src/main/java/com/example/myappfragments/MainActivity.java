@@ -17,30 +17,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // instaciamos el botón de cambio de actividad
-        Button btnactivity2 = findViewById(R.id.btnactivity2);
+ /*       Button btnactivity2 = findViewById(R.id.btnactivity2);
         btnactivity2.setOnClickListener(iractivity2);
-
-
-
-
-
-
-     /*   ContadorFragment contadorFragment = new ContadorFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainerAgregar, contadorFragment)
-                .commit();
-
-        // instanciamos el fragment del contador
-        agregarFragment agregarFragment = new agregarFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainerContador, agregarFragment)
-                .commit();
 */
 
 
 
     }
-    private View.OnClickListener iractivity2 = new View.OnClickListener() {
+/*    private View.OnClickListener iractivity2 = new View.OnClickListener() {
 
         @Override
 
@@ -55,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    };
+    };*/
+/*
 
 
     private View.OnClickListener irafragmentcontador = new View.OnClickListener() {
@@ -80,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     };
+*/
 
 
 
