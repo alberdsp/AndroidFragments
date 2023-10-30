@@ -78,7 +78,7 @@ public class ContadorFragment extends Fragment {
         transaction.setReorderingAllowed(true);
 
         // Reemplazamos el fragment agregar por una instancia del contador
-        transaction.replace(R.id.fragmentContainerContador2, agregarFragment.newInstance("",""));
+        transaction.replace(R.id.fragmentContainerContador2, AgregarPortraitFragment.newInstance("",""));
 
         // Commit la transacción
         transaction.commit();

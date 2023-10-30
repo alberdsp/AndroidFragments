@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    tools:context=".ContadorPortrait">
 
     <Button
         android:id="@+id/btnVolver"
@@ -20,7 +20,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView4"
-        android:name="com.example.myappfragments.ContadorPortaitFragment"
+        android:name="com.example.myappfragments.ContadorPortraitFragment"
         android:layout_width="287dp"
         android:layout_height="398dp"
         app:layout_constraintBottom_toTopOf="@+id/btnVolver"

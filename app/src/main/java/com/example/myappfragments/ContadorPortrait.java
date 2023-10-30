@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity2 extends AppCompatActivity {
+public class ContadorPortrait extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_contador_portrait);
         Button btnVolver = findViewById(R.id.btnVolver);
         btnVolver.setOnClickListener(iractivity1);
 
@@ -28,7 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         public void onClick(View view){
 
-            Intent intent = new Intent(MainActivity2.this,
+            Intent intent = new Intent(ContadorPortrait.this,
                     MainActivity.class);
 
             startActivity(intent);

@@ -1,6 +1,7 @@
 package com.example.myappfragments;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,14 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link agregarFragment#newInstance} factory method to
+ * Use the {@link AgregarPortraitFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class agregarFragment extends Fragment {
+public class AgregarPortraitFragment extends Fragment {
 
 
 
@@ -33,7 +37,7 @@ public class agregarFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public agregarFragment() {
+    public AgregarPortraitFragment() {
         // Required empty public constructor
     }
 
@@ -46,8 +50,8 @@ public class agregarFragment extends Fragment {
      * @return A new instance of fragment agregarFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static agregarFragment newInstance(String param1, String param2) {
-        agregarFragment fragment = new agregarFragment();
+    public static AgregarPortraitFragment newInstance(String param1, String param2) {
+        AgregarPortraitFragment fragment = new AgregarPortraitFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,6 +69,8 @@ public class agregarFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
    }
 
 
@@ -77,11 +83,11 @@ public class agregarFragment extends Fragment {
 
 
 
-            // Establecemos opaco el color de fondo
-        container.setAlpha(1.0f); // Set to 100% opacity
+
+
 
         // establecemos la vista al fragment agregar
-        View vista = inflater.inflate(R.layout.fragment_agregar,container,false);
+        View vista = inflater.inflate(R.layout.fragment_agregar_portrait,container,false);
 
         // instanciamos un botón y lo asociamos al del fragment
 
@@ -92,6 +98,7 @@ public class agregarFragment extends Fragment {
         // al pulsar vamos al activity2
         btnagregar.setOnClickListener(iractivity2);
 
+        Text textcontador = getActivity().findViewById(R.id.textContadorPortrait);
 
 
 
@@ -107,10 +114,40 @@ public class agregarFragment extends Fragment {
 
         public void onClick(View view){
 
-            Intent intent = new Intent(getActivity(),
-                    MainActivity2.class);
 
-            startActivity(intent);
+            int currentOrientation = getResources().getConfiguration().orientation;
+            if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+                // Portrait orientation
+
+
+                contadorPulsos.sumarContador();
+                //  Toast.makeText(getActivity(),contadorPulsos.getContador(),Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(),
+                        ContadorPortrait.class);
+
+
+                startActivity(intent);
+
+
+            } else if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                // Landscape orientation
+
+                contadorPulsos.sumarContador();
+
+
+
+
+
+            } else {
+                // Other orientations (e.g., square)
+            }
+
+
+
+
+
+
         }
 
 
@@ -122,28 +159,36 @@ public class agregarFragment extends Fragment {
 
 
 
-
-
-
-
+    // instanciamos la clase ContadorPulsos y obtenemos la instancia iniciada
+    ContadorPulsos contadorPulsos = ContadorPulsos.getInstancia();
     private View.OnClickListener irafragmentcontador = new View.OnClickListener() {
 
 
 
         @Override
-
+//TODO    no esta claro el uso
         public void onClick(View view){
 
-            // Creamos el nuevo fragment y la transacción
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.setReorderingAllowed(true);
 
-            // Reemplazamos el fragment agregar por una instancia del contador
-            transaction.replace(R.id.fragmentContainerAgregar, ContadorFragment.newInstance("", ""));
 
-            // Commit la transacción
-            transaction.commit();
+
+
+                // Creamos el nuevo fragment y la transacción
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setReorderingAllowed(true);
+
+                // Reemplazamos el fragment agregar por una instancia del contador
+                transaction.replace(R.id.fragmentContainerAgregar, ContadorFragment.newInstance("", ""));
+
+                // Commit la transacción
+                transaction.commit();
+
+
+
+
+
+
 
         }
 
