@@ -5,31 +5,30 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ContadorPortatiFragment">
+    tools:context=".ContadorPortratiFragment">
 
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@id/fragmentContainerAgregar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF">
         <!-- Add child views or fragments as needed -->
-    </FrameLayout>
+        <TextView
+            android:id="@+id/textContador"
+            android:layout_width="74dp"
+            android:layout_height="80dp"
+            android:text="0"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.453" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:id="@+id/textContador"
-        android:layout_width="90dp"
-        android:layout_height="72dp"
-        android:text="0"
-        android:textSize="60sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

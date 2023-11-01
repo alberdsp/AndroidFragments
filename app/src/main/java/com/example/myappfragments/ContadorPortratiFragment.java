@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ContadorPortatiFragment#newInstance} factory method to
+ * Use the {@link ContadorPortratiFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ContadorPortatiFragment extends Fragment {
+public class ContadorPortratiFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class ContadorPortatiFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ContadorPortatiFragment() {
+    public ContadorPortratiFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class ContadorPortatiFragment extends Fragment {
      * @return A new instance of fragment ContadorFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ContadorPortatiFragment newInstance(String param1, String param2) {
-        ContadorPortatiFragment fragment = new ContadorPortatiFragment();
+    public static ContadorPortratiFragment newInstance(String param1, String param2) {
+        ContadorPortratiFragment fragment = new ContadorPortratiFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -78,7 +78,7 @@ public class ContadorPortatiFragment extends Fragment {
         transaction.setReorderingAllowed(true);
 
         // Reemplazamos el fragment agregar por una instancia del contador
-        transaction.replace(R.id.fragmentContainerContador2, AgregarPortraitFragment.newInstance("",""));
+        transaction.replace(R.id.fragmentContainerContador2, AgregarFragment.newInstance("",""));
 
         // Commit la transacción
         transaction.commit();

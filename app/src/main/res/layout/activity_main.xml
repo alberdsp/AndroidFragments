@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerContador2"
-        android:name="com.example.myappfragments.ContadorPortatiFragment"
+        android:name="com.example.myappfragments.ContadorPortratiFragment"
         android:layout_width="377dp"
         android:layout_height="360dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +21,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerAgregar"
-        android:name="com.example.myappfragments.AgregarPortraitFragment"
+        android:name="com.example.myappfragments.AgregarFragment"
         android:layout_width="371dp"
         android:layout_height="354dp"
         app:layout_constraintBottom_toBottomOf="parent"

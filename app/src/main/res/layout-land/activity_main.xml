@@ -7,8 +7,8 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerAgregar2"
-        android:name="com.example.myappfragments.AgregarPortraitFragment"
+        android:id="@+id/fragmentContainerAgregarLandscape"
+        android:name="com.example.myappfragments.AgregarFragment"
         android:layout_width="299dp"
         android:layout_height="358dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/fragmentContainerAgregar2"
+        app:layout_constraintStart_toEndOf="@+id/fragmentContainerAgregarLandscape"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.625" />
 
