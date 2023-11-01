@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
+
+
+/*
+este es el segundo activity en vertical que contendra el fragment con el contador en vertical
+ */
 public class ActivityContadorPortrait extends AppCompatActivity {
 
     @Override
@@ -15,14 +21,14 @@ public class ActivityContadorPortrait extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contador_portrait);
         Button btnVolver = findViewById(R.id.btnVolver);
-        btnVolver.setOnClickListener(iractivity1);
+        btnVolver.setOnClickListener(iraMainActivity);
 
 
 
 
     }
-
-    private View.OnClickListener iractivity1 = new View.OnClickListener() {
+// método para volver al MainActivity
+    private View.OnClickListener iraMainActivity = new View.OnClickListener() {
 
         @Override
 
@@ -43,7 +49,7 @@ public class ActivityContadorPortrait extends AppCompatActivity {
     protected void onStart() {
 
         super.onStart();
-
+        // simple toast para saber donde estamos.
         Toast.makeText(this,"Iniciado activity 2",Toast.LENGTH_SHORT).show();
 
 

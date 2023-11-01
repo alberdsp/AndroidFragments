@@ -93,7 +93,7 @@ public class AgregarFragment extends Fragment {
         // al clicar irá al listener irafragmentcontador
       //  btnagregar.setOnClickListener(irafragmentcontador);
         // al pulsar vamos al activity2
-        btnagregar.setOnClickListener(iractivity2);
+        btnagregar.setOnClickListener(subeContador);
 
         Text textcontador = getActivity().findViewById(R.id.textContadorLand);
 
@@ -102,33 +102,45 @@ public class AgregarFragment extends Fragment {
         return vista;
     }
 
-// método para ir al activity 2
 
 
-    private View.OnClickListener iractivity2 = new View.OnClickListener() {
+
+
+    /*
+     subeContador metódo que subirá el contador en el activity2 si está en Portrait o
+  en el mísmo activity si está en Landscape
+ */
+
+    private View.OnClickListener subeContador = new View.OnClickListener() {
 
         @Override
 
         public void onClick(View view){
 
 
+            // usamos la variable  currentOrientation vara detectar la orientación del terminal
+
             int currentOrientation = getResources().getConfiguration().orientation;
+
+
             if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
-                // Portrait orientation
+                // Si está en vertical
 
 
                 contadorPulsos.sumarContador();
-                //  Toast.makeText(getActivity(),contadorPulsos.getContador(),Toast.LENGTH_SHORT).show();
 
+                // abrimos el nuevo activity  vertical
                 Intent intent = new Intent(getActivity(),
                         ActivityContadorPortrait.class);
 
 
                 startActivity(intent);
 
+                // si está en horizontal
 
-            } else if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-                // Landscape orientation
+            } else {
+
+
 
                 contadorPulsos.sumarContador();
 
@@ -138,10 +150,7 @@ public class AgregarFragment extends Fragment {
 
 
 
-            } else {
-                // Other orientations (e.g., square)
             }
-
 
 
 

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
 
         super.onStart();
-
+        // simple toast para saber donde estamos.
         Toast.makeText(this,"Iniciado activity 1",Toast.LENGTH_SHORT).show();
 
         ContadorPulsos contadorPulsos = ContadorPulsos.getInstancia();
