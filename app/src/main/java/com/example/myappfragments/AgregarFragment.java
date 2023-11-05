@@ -25,22 +25,18 @@ public class AgregarFragment extends Fragment {
 
     // abf 5-11-2023
 
-    private OnContadorChangeListener mListener;
+    private alCambiarelContador mListener;
     private static int contador = 0;
-    // Callback interface
-    public interface OnContadorChangeListener {
-        void onContadorChanged(int contador);
-    }
 
 
-
-    public void onAttach(@NonNull Context context) {
+    // anclamos el la interfaz al fragment y comprobamos si es instancia
+      public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if (context instanceof OnContadorChangeListener) {
-            mListener = (OnContadorChangeListener) context;
+        if (context instanceof alCambiarelContador) {
+            mListener = (alCambiarelContador) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnContadorChangeListener");
+                    + " ");
         }
     }
 
@@ -50,7 +46,7 @@ public class AgregarFragment extends Fragment {
 
 
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -115,8 +111,7 @@ public class AgregarFragment extends Fragment {
 
         Button btnagregar = vista.findViewById(R.id.btnagregar);
 
-        // al clicar irá al listener irafragmentcontador
-      //  btnagregar.setOnClickListener(irafragmentcontador);
+
         // al pulsar vamos al activity2
         btnagregar.setOnClickListener(subeContador);
 
@@ -142,54 +137,20 @@ public class AgregarFragment extends Fragment {
 
         public void onClick(View view){
 
-
-            // usamos la variable  currentOrientation vara detectar la orientación del terminal
-
-            int currentOrientation = getResources().getConfiguration().orientation;
-
-
-            if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
-                // Si está en vertical
-
-
-
-                // abf 5-11-2023
-
                 // Agregamos 1 al contador
                 contador++;
                 // cada vez que cambia el contador realizamos el callback para pasar
                 // al parámetro al MainActivity
+                //devolvemos el callback al MainActivity
                 if (mListener != null) {
-                    mListener.onContadorChanged(contador);
+                    mListener.contadorCambiado(contador);
                 }
 
-                //contadorPulsos.sumarContador();
-
-
-                // abrimos el nuevo activity  vertical
-
-
-          /*      Intent intent = new Intent(getActivity(),
-                        ActivityContadorPortrait.class);
-
-
-                startActivity(intent);*/
-
-                // si está en horizontal
-
-            } else {
 
 
 
-                contadorPulsos.sumarContador();
-
-                //refrescarContador();
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
 
 
-
-            }
 
 
 
@@ -206,10 +167,14 @@ public class AgregarFragment extends Fragment {
 
 
 
-    // instanciamos la clase ContadorPulsos y obtenemos la instancia iniciada
-    ContadorPulsos contadorPulsos = ContadorPulsos.getInstancia();
 
 
+
+
+    // Declaramos la interfaz Callback que será después implementada
+    public interface alCambiarelContador {
+        void contadorCambiado(int contador);
+    }
 
 
 

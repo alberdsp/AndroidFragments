@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +16,12 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class ContadorLandscapeFragment extends Fragment {
+
+    // declaramos el campo texto del contador que después será actualizado
+    private TextView textContadorLand;
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,46 +70,39 @@ public class ContadorLandscapeFragment extends Fragment {
         }
 
 
-
-
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Cargamos la vista del fragment
+        View vista = inflater.inflate(R.layout.fragment_contador_landscape, container, false);
+        // asignamos el valor de la variable textContadorLand a la etiqueta
+        textContadorLand = vista.findViewById(R.id.textContadorLand);
 
+        return vista;
 
-
-
-
-
-
-        return inflater.inflate(R.layout.fragment_contador_land, container, false);
     }
-    // instanciamos la clase ContadorPulsos y obtenemos la instancia iniciada
-    ContadorPulsos contadorPulsos = ContadorPulsos.getInstancia();
-    @Override
 
 
-    // cuando se prepara el fragment para trabajar con el y se muestra, establecemos
-    // el valor de texto.
+
 
     public void onResume() {
         super.onResume();
-        TextView textView = requireView().findViewById(R.id.textContadorLand);
-        textView.setText(contadorPulsos.getContador());
 
 
-    }
-
-    public void refrescarContador(){
-
-        TextView textView = requireView().findViewById(R.id.textContadorLand);
-        textView.setText(contadorPulsos.getContador());
 
     }
 
 
+
+    // método que actualiza el valor de la etiqueta del contador.
+    public void actualizaContador(int contador) {
+
+
+        if (textContadorLand != null) {
+            textContadorLand.setText(String.valueOf(contador));
+
+
+        }
+    }
 }
