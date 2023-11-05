@@ -2,7 +2,7 @@ package com.example.myappfragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,28 +16,32 @@ este es el segundo activity en vertical que contendra el fragment con el contado
  */
 public class ActivityContadorPortrait extends AppCompatActivity {
 
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contador_portrait);
         Button btnVolver = findViewById(R.id.btnVolver);
-        btnVolver.setOnClickListener(iraMainActivity);
+        btnVolver.setOnClickListener(cerrarActivity);
 
 
 
 
     }
-// método para volver al MainActivity
-    private View.OnClickListener iraMainActivity = new View.OnClickListener() {
+
+
+// método para cerrar el activity actual
+    private View.OnClickListener cerrarActivity = new View.OnClickListener() {
 
         @Override
 
         public void onClick(View view){
-
-            Intent intent = new Intent(ActivityContadorPortrait.this,
-                    MainActivity.class);
-
-            startActivity(intent);
+                    finish();
         }
 
 
@@ -49,12 +53,41 @@ public class ActivityContadorPortrait extends AppCompatActivity {
     protected void onStart() {
 
         super.onStart();
-        // simple toast para saber donde estamos.
+
+
         Toast.makeText(this,"Iniciado activity 2",Toast.LENGTH_SHORT).show();
 
 
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+    }
+
+
+    // método que nos devuelve el valor del contador que nos ha pasado el
+    //MainActivity
+
+
+    public String getContador (){
+
+        int contador = 0;
+
+
+        contador = getIntent().getIntExtra("VALOR_CONTADOR", -1);
+
+
+
+        return String.valueOf(contador);
+
+
+
+    }
+
 
 
 

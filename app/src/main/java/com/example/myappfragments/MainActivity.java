@@ -2,11 +2,12 @@ package com.example.myappfragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AgregarFragment.OnContadorChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +16,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+
+
+
+    @Override
+    public void onContadorChanged(int contador) {
+        // Start ActivityContadorPortrait with the incremented contador value
+        Intent intent = new Intent(this, ActivityContadorPortrait.class);
+        intent.putExtra("VALOR_CONTADOR", contador);
+        startActivity(intent);
     }
 
 
@@ -30,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         // simple toast para saber donde estamos.
         Toast.makeText(this,"Iniciado activity 1",Toast.LENGTH_SHORT).show();
 
-        ContadorPulsos contadorPulsos = ContadorPulsos.getInstancia();
+
+        // comentamos la instancia al contador anterior
+      //  ContadorPulsos contadorPulsos = ContadorPulsos.getInstancia();
 
 
 
@@ -38,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+  // método para detectar la configuración horizontal o vertical
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -46,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             setContentView(R.layout.activity_main);
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            // Handle portrait orientation
+
         }
     }
 

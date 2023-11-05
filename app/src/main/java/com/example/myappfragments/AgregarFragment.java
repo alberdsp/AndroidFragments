@@ -1,9 +1,11 @@
 package com.example.myappfragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -21,6 +23,29 @@ import org.w3c.dom.Text;
  */
 public class AgregarFragment extends Fragment {
 
+    // abf 5-11-2023
+
+    private OnContadorChangeListener mListener;
+    private static int contador = 0;
+    // Callback interface
+    public interface OnContadorChangeListener {
+        void onContadorChanged(int contador);
+    }
+
+
+
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof OnContadorChangeListener) {
+            mListener = (OnContadorChangeListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnContadorChangeListener");
+        }
+    }
+
+
+    // abf 5-11-2023
 
 
 
@@ -72,7 +97,7 @@ public class AgregarFragment extends Fragment {
 
 
 
-
+    //
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -127,14 +152,28 @@ public class AgregarFragment extends Fragment {
                 // Si está en vertical
 
 
-                contadorPulsos.sumarContador();
+
+                // abf 5-11-2023
+
+                // Agregamos 1 al contador
+                contador++;
+                // cada vez que cambia el contador realizamos el callback para pasar
+                // al parámetro al MainActivity
+                if (mListener != null) {
+                    mListener.onContadorChanged(contador);
+                }
+
+                //contadorPulsos.sumarContador();
+
 
                 // abrimos el nuevo activity  vertical
-                Intent intent = new Intent(getActivity(),
+
+
+          /*      Intent intent = new Intent(getActivity(),
                         ActivityContadorPortrait.class);
 
 
-                startActivity(intent);
+                startActivity(intent);*/
 
                 // si está en horizontal
 
