@@ -7,7 +7,27 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+/**
+ * Este es el MainActivity de la aplicación que contendrá dos fragments AgregarFragment
+ * y ContadorLandscapeFragment
+ */
 public class MainActivity extends AppCompatActivity implements AgregarFragment.alCambiarelContador {
+
+    // almacenamos las pulsaciones que vienen del fragment
+    private static int valorContador = 0;
+
+    // método para acceder al valor si es necesario
+    public int getValorContador() {
+        return valorContador;
+    }
+
+    public void setValorContador(int valorContador) {
+
+        this.valorContador = valorContador;
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements AgregarFragment.a
 
         int currentOrientation = getResources().getConfiguration().orientation;
         ContadorLandscapeFragment landscapeFragment = (ContadorLandscapeFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerViewLand);
+
+        setValorContador(contador);
+
 
         if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
 
@@ -60,21 +83,6 @@ public class MainActivity extends AppCompatActivity implements AgregarFragment.a
         // simple toast para saber donde estamos.
         Toast.makeText(this, "Iniciado activity 1", Toast.LENGTH_SHORT).show();
 
-    }
-
-
-    // método para detectar la configuración horizontal o vertical
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.activity_main);
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-
-
-
-        }
     }
 
 
